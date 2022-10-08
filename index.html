@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>
+            ALARM SYSTEM
+        </h1>
+    <div class="currenttime">
+
+    </div>
+    <div class="alarmtime">
+
+    </div>
+    <div class="alarm">
+        NOT YET
+    </div>
+</div>
+</body>
+<script>
+    var a_hours = window.prompt("Enter hours")
+    var a_minutes = window.prompt("Enter minutes")
+    var a_seconds = window.prompt("Enter seconds")
+    function current_date(){
+        const d = new Date()
+            let hours = d.getHours()
+            let minutes = d.getMinutes()
+            let seconds = d.getSeconds()
+            document.querySelector('.currenttime').textContent = hours + ":" + minutes + ":" + seconds
+            document.querySelector('.alarmtime').textContent = a_hours + ":" + a_minutes + ":" + a_seconds
+            if((a_hours==hours&&a_minutes==minutes&&a_seconds==seconds)){
+                document.querySelector('.alarm').textContent = 'TIME IS OVER'
+            }
+            setTimeout(current_date,1000)
+        }
+        current_date()
+</script>
+</html>
